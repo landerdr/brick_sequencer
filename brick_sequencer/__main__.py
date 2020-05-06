@@ -8,7 +8,7 @@ import pandas as pd
 from .BaseCaller import dropNonSequence
 from .BaseGuesser import BaseGuesser
 from .TimeCalculator import TimeCalculator
-import src.colour as colour
+from . import colour
 from .csvfile import CSVFile
 
 

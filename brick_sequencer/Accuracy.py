@@ -1,6 +1,6 @@
-from src.BaseGuesser import *
-import src.BaseCaller
-from src.TimeCalculator import *
+from brick_sequencer.BaseGuesser import *
+import brick_sequencer.BaseCaller
+from brick_sequencer.TimeCalculator import *
 
 from os import walk
 
@@ -50,13 +50,12 @@ def getAccuracy(dir, files):
 
             time = TimeCalculator().calc_time(df[column].to_numpy())
 
-            dfRes = BaseGuesser.sequence(src.BaseCaller.dropNonSequence(df), time)
+            dfRes = BaseGuesser.sequence(brick_sequencer.BaseCaller.dropNonSequence(df), time)
             writeToFile.write("Guessed sequence: ")
             for i,j in dfRes.iterrows():
                 writeToFile.write(convertColor(j[0]))
             writeToFile.write("\n")
             writeToFile.write("Column: " + column + "\n")
-
             accuracy = calculateAcurracyRun(sequence, dfRes)
             writeToFile.write("Accuracy: "+str(accuracy)+"\n\n")
 
